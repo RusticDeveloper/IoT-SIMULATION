@@ -5,14 +5,18 @@ import paho.mqtt.client
 
 def on_connect(client, userdata, flags, rc):
 	print('connected (%s)' % client._client_id)
-	client.subscribe(topic='casa/cocina/nevera', qos=2)
+	client.subscribe(topic='casa/luces/cocina', qos=2)
 
 def on_message(client, userdata, message):
 	print('------------------------------')
 	print('topic: %s' % message.topic)
 	print('payload: %s' % message.payload)
-	# * exxtraer la informacion del menaje
+	# * extraer la informacion del mensaje
 	msg_info=json.loads(message.payload)
+	if msg_info['value']< 50 and  msg_info['accuracy']>0.9:
+		print('Luces Encendidas')
+	else:
+		print('Luces Apagadas')
 	print('payload_value: %s' % msg_info["value"])
 	print('qos: %d' % message.qos)
 
