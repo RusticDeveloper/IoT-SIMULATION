@@ -16,7 +16,7 @@ echo Valor aleatorio (entre 1 y 100): %VALOR%
 echo Valor aleatorio (entre 0 y 1): %FLOAT_NUM%
 :: ejecutar la llamada
 cd C:\program files\mosquitto
-mosquitto_pub -h 127.0.0.1 -p 5600 -t "casa/cortinas/dormitorio" -m "{ deviceId:'5ee9df8-ff5fd3', eventTime:'2024-06-12 dfdsf', value:%VALOR%, accuracy:%FLOAT_NUM% }"
+mosquitto_pub -h 127.0.0.1 -p 5600 -t "casa/luces/cocina" -m "{ deviceId:'5ee9df8-ff5fd3', eventTime:'2024-06-12 dfdsf', value:%VALOR%, accuracy:%FLOAT_NUM% }"
 
 echo Presiona Ctrl+C para salir o espera el proximo valor.
 
